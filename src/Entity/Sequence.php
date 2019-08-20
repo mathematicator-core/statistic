@@ -1,12 +1,14 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Mathematicator\Statistics\Entity;
 
 
+use Baraja\Doctrine\UUID\UuidIdentifier;
 use Doctrine\ORM\Mapping as ORM;
 use Nette\SmartObject;
 use Nette\Utils\Strings;
-use ShopUp\Database\UUID\UuidIdentifier;
 
 /**
  * @ORM\Entity()
@@ -63,7 +65,7 @@ class Sequence
 	}
 
 	/**
-	 * @return null|string
+	 * @return string|null
 	 */
 	public function getData(): ?string
 	{
@@ -108,6 +110,9 @@ class Sequence
 		}
 	}
 
+	/**
+	 * @return string|null
+	 */
 	public function getFormula(): ?string
 	{
 		return $this->getDataType('F');

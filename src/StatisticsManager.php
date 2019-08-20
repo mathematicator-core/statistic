@@ -3,11 +3,11 @@
 namespace Model\Math\Statistics;
 
 
+use Baraja\Doctrine\EntityManager;
+use Baraja\Doctrine\EntityManagerException;
 use Mathematicator\Statistics\Entity\Sequence;
 use Nette\Utils\Strings;
 use Nette\Utils\Validators;
-use ShopUp\Database\EntityManager;
-use ShopUp\Database\EntityManagerException;
 
 class StatisticsManager
 {

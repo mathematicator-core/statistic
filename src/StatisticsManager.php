@@ -1,6 +1,8 @@
 <?php
 
-namespace Model\Math\Statistics;
+declare(strict_types=1);
+
+namespace Mathematicator\Statistics;
 
 
 use Baraja\Doctrine\EntityManager;

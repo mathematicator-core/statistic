@@ -7,6 +7,8 @@ namespace Mathematicator\Statistics;
 
 use Baraja\Doctrine\EntityManager;
 use Baraja\Doctrine\EntityManagerException;
+use Doctrine\ORM\NonUniqueResultException;
+use Doctrine\ORM\NoResultException;
 use Mathematicator\Statistics\Entity\Sequence;
 use Nette\Utils\Strings;
 use Nette\Utils\Validators;
@@ -29,13 +31,13 @@ class StatisticsManager
 
 	/**
 	 * @param string $query
-	 * @return int[]|float[]
+	 * @return string[]
 	 */
 	public function getNumbers(string $query): array
 	{
 		$numbers = [];
 
-		$query = preg_replace('/[^0-9-.\/]/', ';', $query);
+		$query = (string) preg_replace('/[^0-9-.\/]/', ';', $query);
 		$query = (string) preg_replace('/\;+/', ';', $query);
 
 		foreach (explode(';', $query) as $number) {
@@ -100,12 +102,13 @@ class StatisticsManager
 	}
 
 	/**
-	 * @param \int[] $sequence
+	 * @param string[] $sequence
 	 * @param int $limit
 	 * @return Sequence[]
 	 */
 	public function getSequences(array $sequence, int $limit = 6): array
 	{
+		assert(Validators::everyIs($sequence, 'string'));
 		/** @var Sequence[] $return */
 		$return = $this->entityManager->getRepository(Sequence::class)
 			->createQueryBuilder('sequence')
@@ -131,6 +134,8 @@ class StatisticsManager
 	/**
 	 * @param string $aId
 	 * @return Sequence
+	 * @throws EntityManagerException
+	 * @throws NoResultException|NonUniqueResultException
 	 */
 	public function getSequence(string $aId): Sequence
 	{

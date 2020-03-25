@@ -13,13 +13,12 @@ use Mathematicator\Statistics\Entity\Sequence;
 use Nette\Utils\Strings;
 use Nette\Utils\Validators;
 
-class StatisticsManager
+final class StatisticsManager
 {
 
-	/**
-	 * @var EntityManager
-	 */
+	/** @var EntityManager */
 	private $entityManager;
+
 
 	/**
 	 * @param EntityManager $entityManager
@@ -28,6 +27,7 @@ class StatisticsManager
 	{
 		$this->entityManager = $entityManager;
 	}
+
 
 	/**
 	 * @param string $query
@@ -49,6 +49,7 @@ class StatisticsManager
 		return $numbers;
 	}
 
+
 	/**
 	 * @param string $data
 	 * @return int[][]|float[][]
@@ -63,6 +64,7 @@ class StatisticsManager
 
 		return $return;
 	}
+
 
 	/**
 	 * @param int[]|float[] $array
@@ -80,6 +82,7 @@ class StatisticsManager
 
 		return 0;
 	}
+
 
 	/**
 	 * @param int[]|float[] $array
@@ -100,6 +103,7 @@ class StatisticsManager
 
 		return 0;
 	}
+
 
 	/**
 	 * @param string[] $sequence
@@ -131,6 +135,7 @@ class StatisticsManager
 		return $return;
 	}
 
+
 	/**
 	 * @param string $aId
 	 * @return Sequence
@@ -155,5 +160,4 @@ class StatisticsManager
 
 		return $return;
 	}
-
 }

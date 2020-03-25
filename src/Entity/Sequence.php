@@ -15,7 +15,6 @@ use Nette\Utils\Strings;
  */
 class Sequence
 {
-
 	use UuidIdentifier;
 	use SmartObject;
 
@@ -39,6 +38,7 @@ class Sequence
 	 */
 	private $data;
 
+
 	/**
 	 * @param string $aId
 	 */
@@ -48,6 +48,7 @@ class Sequence
 		$this->updateData();
 	}
 
+
 	/**
 	 * @return string
 	 */
@@ -55,6 +56,7 @@ class Sequence
 	{
 		return $this->aId;
 	}
+
 
 	/**
 	 * @return int[]
@@ -73,6 +75,7 @@ class Sequence
 		return $return;
 	}
 
+
 	/**
 	 * @return string|null
 	 */
@@ -80,6 +83,7 @@ class Sequence
 	{
 		return $this->data;
 	}
+
 
 	/**
 	 * @param string $type
@@ -108,6 +112,7 @@ class Sequence
 		return $type === 'A' ? str_replace('_', '', $return) : $return;
 	}
 
+
 	public function updateData(): void
 	{
 		if ($this->data === null) {
@@ -119,6 +124,7 @@ class Sequence
 		}
 	}
 
+
 	/**
 	 * @return string|null
 	 */
@@ -126,5 +132,4 @@ class Sequence
 	{
 		return $this->getDataType('F');
 	}
-
 }

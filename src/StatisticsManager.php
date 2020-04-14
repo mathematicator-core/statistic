@@ -52,14 +52,18 @@ final class StatisticsManager
 
 	/**
 	 * @param string $data
-	 * @return int[][]|float[][]
+	 * @return float[][]
 	 */
 	public function getData(string $data): array
 	{
 		$return = [];
 
 		foreach (explode("\n", Strings::normalize($data)) as $line) {
-			$return[] = $this->getNumbers($line);
+			$numbers = [];
+			foreach ($this->getNumbers($line) as $number) {
+				$numbers[] = (float) $number;
+			}
+			$return[] = $numbers;
 		}
 
 		return $return;

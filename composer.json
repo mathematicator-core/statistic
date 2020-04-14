@@ -10,7 +10,7 @@
 	],
 	"require": {
 		"php": ">=7.1.0",
-		"baraja-core/doctrine": "~1.0",
+		"baraja-core/doctrine": "^2.0",
 		"nette/tester": "^2.0"
 	},
 	"require-dev": {

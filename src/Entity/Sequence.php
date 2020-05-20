@@ -97,7 +97,7 @@ class Sequence
 
 		$return = [];
 
-		foreach (explode("\n", $this->getData()) as $line) {
+		foreach (explode("\n", (string) $this->getData()) as $line) {
 			if (preg_match(self::FORMAT_PATTERN, $line, $parser) && $parser['type'] === $type) {
 				$return[] = $parser['content'];
 			}
@@ -118,7 +118,7 @@ class Sequence
 		if ($this->data === null) {
 			$this->data = Strings::normalize(
 				Strings::fixEncoding(
-					file_get_contents('https://oeis.org/search?q=id:' . $this->getAId() . '&fmt=text')
+					(string) file_get_contents('https://oeis.org/search?q=id:' . $this->getAId() . '&fmt=text')
 				)
 			);
 		}

@@ -2,11 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Mathematicator\Engine\Tests;
+namespace Mathematicator\Statistic\Tests;
 
-require __DIR__ . '/../vendor/autoload.php';
+// TODO: require __DIR__ . '/../vendor/autoload.php';
 
-use FrontModule\LinkGeneratorMock;
 use Nette\Configurator;
 use Nette\DI\Container;
 use Tester\Environment;
@@ -23,15 +22,13 @@ class Bootstrap
 		$configurator->setTempDirectory(__DIR__ . '/../temp');
 
 		$configurator->createRobotLoader()
-			->addDirectory(__DIR__ . "/../src")
+			->addDirectory(__DIR__ . '/../src')
 			->register();
 
 		$configurator
 			->addConfig(__DIR__ . '/../common.neon')
 			->addConfig(__DIR__ . '/config.neon');
 
-		$container = $configurator->createContainer();
-
-		return $container;
+		return $configurator->createContainer();
 	}
 }

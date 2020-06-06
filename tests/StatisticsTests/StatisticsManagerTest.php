@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Mathematicator\Statistic\Test;
+namespace Mathematicator\Statistics\Test;
 
 
 use Tester\Assert;
 use Tester\TestCase;
 
-require __DIR__ . '/../bootstrap.php';
+require __DIR__ . '/../Bootstrap.php';
 
 class StatisticsManagerTest extends TestCase
 {

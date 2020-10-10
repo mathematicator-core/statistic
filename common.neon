@@ -1,2 +1,2 @@
-services:
-	- Mathematicator\Statistics\StatisticsManager
+extensions:
+	mathematicator.statistic: Mathematicator\Statistics\StatisticExtension

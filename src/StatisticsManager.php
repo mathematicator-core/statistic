@@ -20,9 +20,6 @@ final class StatisticsManager
 	private $entityManager;
 
 
-	/**
-	 * @param EntityManager $entityManager
-	 */
 	public function __construct(EntityManager $entityManager)
 	{
 		$this->entityManager = $entityManager;
@@ -30,34 +27,30 @@ final class StatisticsManager
 
 
 	/**
-	 * @param string $query
 	 * @return string[]
 	 */
 	public function getNumbers(string $query): array
 	{
-		$numbers = [];
-
 		$query = (string) preg_replace('/[^0-9-.\/]/', ';', $query);
 		$query = (string) preg_replace('/\;+/', ';', $query);
 
+		$return = [];
 		foreach (explode(';', $query) as $number) {
 			if (Validators::isNumeric($number)) {
-				$numbers[] = $number;
+				$return[] = $number;
 			}
 		}
 
-		return $numbers;
+		return $return;
 	}
 
 
 	/**
-	 * @param string $data
 	 * @return float[][]
 	 */
 	public function getData(string $data): array
 	{
 		$return = [];
-
 		foreach (explode("\n", Strings::normalize($data)) as $line) {
 			$numbers = [];
 			foreach ($this->getNumbers($line) as $number) {
@@ -111,7 +104,6 @@ final class StatisticsManager
 
 	/**
 	 * @param string[] $sequence
-	 * @param int $limit
 	 * @return Sequence[]
 	 */
 	public function getSequences(array $sequence, int $limit = 6): array
@@ -141,10 +133,7 @@ final class StatisticsManager
 
 
 	/**
-	 * @param string $aId
-	 * @return Sequence
-	 * @throws EntityManagerException
-	 * @throws NoResultException|NonUniqueResultException
+	 * @throws EntityManagerException|NoResultException|NonUniqueResultException
 	 */
 	public function getSequence(string $aId): Sequence
 	{

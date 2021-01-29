@@ -16,9 +16,11 @@
 		"brainmaestro/composer-git-hooks": "^2.8",
 		"nette/bootstrap": "^3.0.1",
 		"nette/tester": "^2.0",
+		"symplify/easy-coding-standard": "^7.2",
 		"phpstan/phpstan": "^0.12.18",
 		"phpstan/phpstan-nette": "^0.12.6",
-		"symplify/easy-coding-standard": "^7.2"
+		"spaze/phpstan-disallowed-calls": "^1.1",
+		"roave/security-advisories": "dev-master"
 	},
 	"autoload": {
 		"psr-4": {

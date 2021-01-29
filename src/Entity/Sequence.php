@@ -39,9 +39,6 @@ class Sequence
 	private $data;
 
 
-	/**
-	 * @param string $aId
-	 */
 	public function __construct(string $aId)
 	{
 		$this->aId = $aId;
@@ -49,9 +46,6 @@ class Sequence
 	}
 
 
-	/**
-	 * @return string
-	 */
 	public function getAId(): string
 	{
 		return $this->aId;
@@ -76,19 +70,12 @@ class Sequence
 	}
 
 
-	/**
-	 * @return string|null
-	 */
 	public function getData(): ?string
 	{
 		return $this->data;
 	}
 
 
-	/**
-	 * @param string $type
-	 * @return string|null
-	 */
 	public function getDataType(string $type): ?string
 	{
 		if ($this->getData() === null) {
@@ -125,9 +112,6 @@ class Sequence
 	}
 
 
-	/**
-	 * @return string|null
-	 */
 	public function getFormula(): ?string
 	{
 		return $this->getDataType('F');

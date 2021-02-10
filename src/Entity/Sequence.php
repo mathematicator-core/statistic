@@ -7,7 +7,6 @@ namespace Mathematicator\Statistics\Entity;
 
 use Baraja\Doctrine\UUID\UuidIdentifier;
 use Doctrine\ORM\Mapping as ORM;
-use Nette\SmartObject;
 use Nette\Utils\Strings;
 
 /**
@@ -94,8 +93,8 @@ class Sequence
 		if ($this->data === null) {
 			$this->data = Strings::normalize(
 				Strings::fixEncoding(
-					(string) file_get_contents('https://oeis.org/search?q=id:' . $this->getAId() . '&fmt=text')
-				)
+					(string) file_get_contents('https://oeis.org/search?q=id:' . $this->getAId() . '&fmt=text'),
+				),
 			);
 		}
 	}

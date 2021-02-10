@@ -15,9 +15,7 @@ use Nette\Utils\Validators;
 
 final class StatisticsManager
 {
-
-	/** @var EntityManager */
-	private $entityManager;
+	private EntityManager $entityManager;
 
 
 	public function __construct(EntityManager $entityManager)
@@ -65,9 +63,8 @@ final class StatisticsManager
 
 	/**
 	 * @param int[]|float[] $array
-	 * @return float|int|mixed
 	 */
-	public function getMedian(array $array)
+	public function getMedian(array $array): float|int
 	{
 		if ($array) {
 			$count = \count($array);
@@ -83,9 +80,8 @@ final class StatisticsManager
 
 	/**
 	 * @param int[]|float[] $array
-	 * @return float|int
 	 */
-	public function getAverage(array $array)
+	public function getAverage(array $array): float|int
 	{
 		if ($array) {
 			$sum = 0;

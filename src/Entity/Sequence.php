@@ -16,27 +16,17 @@ use Nette\Utils\Strings;
 class Sequence
 {
 	use UuidIdentifier;
-	use SmartObject;
 
 	private const FORMAT_PATTERN = '/^\%(?<type>[a-zA-Z0-9]+)\s+(A\d+)\s?(?<content>.*?)\s*$/';
 
-	/**
-	 * @var string
-	 * @ORM\Column(type="string", unique=true)
-	 */
-	private $aId;
+	/** @ORM\Column(type="string", unique=true) */
+	private string $aId;
 
-	/**
-	 * @var string|null
-	 * @ORM\Column(type="text", nullable=true)
-	 */
-	private $sequence;
+	/** @ORM\Column(type="text", nullable=true) */
+	private ?string $sequence = null;
 
-	/**
-	 * @var string|null
-	 * @ORM\Column(type="text", nullable=true)
-	 */
-	private $data;
+	/** @ORM\Column(type="text", nullable=true) */
+	private ?string $data = null;
 
 
 	public function __construct(string $aId)
@@ -89,7 +79,6 @@ class Sequence
 				$return[] = $parser['content'];
 			}
 		}
-
 		if ($return === []) {
 			return null;
 		}
